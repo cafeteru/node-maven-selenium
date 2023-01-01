@@ -22,9 +22,11 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Build the Docker image
-        run: |
-          docker build -t node-maven-selenium .
-          docker tag node-maven-selenium cafeteru/node-maven-selenium:latest
-          docker push cafeteru/node-maven-selenium:latest
+          
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ github.repository }}:latest

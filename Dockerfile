@@ -1,10 +1,9 @@
 FROM maven:3.8.6-openjdk-11-slim
 
 LABEL building_block="node-maven-selenium"
-LABEL version="1.0.0"
+LABEL version="1.1.0"
 
 ARG CHROMEDRIVER_VERSION=108.0.5359.71
-ARG WORK_DIR=/home/userTest/project
 
 # Update image and install dependencies
 RUN apt-get update && apt-get upgrade -y
